@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Epsilon step</title>
+    <link>https://epsilon-step.github.io/tags/</link>
+    <description>Recent content in Tags on Epsilon step</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>guillaume.lagarde@labri.fr (Guillaume)</managingEditor>
+    <webMaster>guillaume.lagarde@labri.fr (Guillaume)</webMaster>
+    
+	<atom:link href="https://epsilon-step.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

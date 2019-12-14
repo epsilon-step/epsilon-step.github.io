@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Farkas&#39; lemma and related stories - Epsilon step</title>
+  <meta name="description" content="Farkas&#39; lemma plays a central role in the strong duality theorem in linear programming (another post will unravel in details this implication). There are many equivalent ways to state this lemma but the following one will allow us to highlight similarities with others theorems. Formally, we consider a system of linear inequalities of the form
+\[l_1(x) \geq 0, \dots, l_m(x) \geq 0\]
+where \(x\) lies in \(\mathbb{R}^d\) and the \(l_i \in \mathbb{R}[x]\) are polynomials of degree \(1\).">
+  <meta name="author" content="Guillaume"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Epsilon step",
+    
+    "url": "https:\/\/epsilon-step.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/epsilon-step.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/epsilon-step.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/epsilon-step.github.io\/post\/farkas\/",
+          "name": "Farkas\x27 lemma and related stories"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Guillaume"
+  },
+  "headline": "Farkas\x27 lemma and related stories",
+  "description" : "Farkas\x27 lemma plays a central role in the strong duality theorem in linear programming (another post will unravel in details this implication). There are many equivalent ways to state this lemma but the following one will allow us to highlight similarities with others theorems. Formally, we consider a system of linear inequalities of the form\n\\[l_1(x) \\geq 0, \\dots, l_m(x) \\geq 0\\]\nwhere \\(x\\) lies in \\(\\mathbb{R}^d\\) and the \\(l_i \\in \\mathbb{R}[x]\\) are polynomials of degree \\(1\\).",
+  "inLanguage" : "en",
+  "wordCount":  650 ,
+  "datePublished" : "2019-12-14T15:30:41",
+  "dateModified" : "2019-12-14T15:30:41",
+  "image" : "https:\/\/epsilon-step.github.io",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/epsilon-step.github.io\/post\/farkas\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/epsilon-step.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/epsilon-step.github.io",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Farkas&#39; lemma and related stories" />
+<meta property="og:description" content="Farkas&#39; lemma plays a central role in the strong duality theorem in linear programming (another post will unravel in details this implication). There are many equivalent ways to state this lemma but the following one will allow us to highlight similarities with others theorems. Formally, we consider a system of linear inequalities of the form
+\[l_1(x) \geq 0, \dots, l_m(x) \geq 0\]
+where \(x\) lies in \(\mathbb{R}^d\) and the \(l_i \in \mathbb{R}[x]\) are polynomials of degree \(1\).">
+<meta property="og:url" content="https://epsilon-step.github.io/post/farkas/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Epsilon step" />
+
+  <meta name="twitter:title" content="Farkas&#39; lemma and related stories" />
+  <meta name="twitter:description" content="Farkas&#39; lemma plays a central role in the strong duality theorem in linear programming (another post will unravel in details this implication). There are many equivalent ways to state this lemma but …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.61.0" />
+  <link rel="alternate" href="https://epsilon-step.github.io/index.xml" type="application/rss+xml" title="Epsilon step"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://epsilon-step.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://epsilon-step.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://epsilon-step.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://epsilon-step.github.io">Epsilon step</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Farkas&#39; lemma and related stories</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on December 14, 2019
+  
+  
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Farkas' lemma plays a central role in the <strong>strong duality
+theorem</strong> in linear programming (another post will unravel in details
+this implication). There are many equivalent ways to state this lemma
+but the following one will allow us to highlight similarities with
+others theorems. Formally, we consider a system of linear inequalities of
+the form</p>
+
+<p><span  class="math">\[l_1(x) \geq 0, \dots, l_m(x) \geq 0\]</span></p>
+
+<p>where <span  class="math">\(x\)</span> lies in <span  class="math">\(\mathbb{R}^d\)</span> and the <span  class="math">\(l_i \in \mathbb{R}[x]\)</span> are polynomials
+of degree <span  class="math">\(1\)</span>. Farkas' lemma says that exactly one of the following holds:</p>
+
+<ul>
+<li>(1) the system <span  class="math">\(l_1(x) \geq 0, \dots, l_m(x) \geq 0\)</span> has a solution in <span  class="math">\(\mathbb{R}^d\)</span>,</li>
+<li>(2) there are <span  class="math">\(m\)</span> non-negative integers <span  class="math">\(q_1\geq 0,\dots, q_m \geq 0\)</span> such that <span  class="math">\(-1 = \sum_i q_i.l_i(x)\)</span>.</li>
+</ul>
+
+<p>Observe that (2) is a certificate that the system has no solution
+since otherwise it would imply <span  class="math">\(-1 \geq 0\)</span>. What is harder to prove
+is that one of the two should holds.</p>
+
+<p>A similar situation arises in the classical (weak) <strong>Hilbert
+Nullstellensatz</strong> theorem. Indeed, given any algebraically closed
+field <span  class="math">\(\mathbb{K}\)</span> such as the complex numbers <span  class="math">\(\mathbb{C}\)</span>, the
+Nullstellensatz tells us than a set of polynomials <span  class="math">\(f_1,\dots, f_m
+\in \mathbb{K}[x]\)</span> either has a common root in <span  class="math">\(\mathbb{K}^d\)</span> or
+there exists <span  class="math">\(m\)</span> polynomials <span  class="math">\(q_1,\dots, q_m \in \mathbb{K}[x]\)</span>
+such that <span  class="math">\(1 = \sum_i q_i.f_i \)</span> (in others words, <span  class="math">\(1\)</span> is in the
+ideal generated by the <span  class="math">\(f_i\)</span>). Note that the polynomials <span  class="math">\(q_i\)</span> can
+be seen as a certificate that the system of polynomial equations
+<span  class="math">\(f_1(x) = 0, \dots, f_m(x) = 0\)</span> has no solution. Such a certificate
+can easily be checked in polynomial time and therefore the
+Nullstellensatz theorem led to the definitions of several <strong>proofs
+systems</strong> such as the <strong>Nullstellensatz proof system</strong> or <strong>Polynomial
+calculus resolution</strong> (this latter one captures Gröbner basis
+computations).</p>
+
+<p>While Farkas' lemma works over an ordered field such as the real
+numbers and deals with inequalities, Nullstellensatz handles more
+complicated objects (polynomials of any degree) but only applies to
+algebraically closed field and equations. A natural question is to
+know whether we can combine the best of the two worlds and construct similar
+certificates for polynomial equations and inequalities over the real
+field. Let me kill the suspense directly: it is possible and this is
+the purpose of the <strong>Positivstellensatz</strong>!</p>
+
+<p>The Positivstellensatz says that a system of (real) polynomials equations and
+inequalities of the form</p>
+
+<p><span  class="math">\[f_1(x) \geq 0, \dots, f_m(x) \geq 0, h_1(x) = 0, \dots, h_k(x) = 0\]</span></p>
+
+<p>has no solution over <span  class="math">\(\mathbb{R}^d\)</span> if and only if there exists some polynomials <span  class="math">\(q_I,r_j
+\in \mathbb{R}[x]\)</span> such that the <span  class="math">\(q_I\)</span> are sums of squares and such that</p>
+
+<p><span  class="math">\[-1 = \sum_{I \subset [m]} q_I.\prod_{i \in I} f_i + \sum_j r_j.h_j\]</span></p>
+
+<p>(in words, we say that <span  class="math">\(-1\)</span> is in sum of the <strong>cone</strong> generated by
+the <span  class="math">\(f_i\)</span> and the <strong>ideal</strong> generated by the <span  class="math">\(h_j\)</span>).</p>
+
+<p>This theorem plays an important role in polynomial
+optimization. Indeed, suppose you have a optimization problem of the
+form</p>
+
+<p><span  class="math">\[(\star) \ \ \ \ \max f(x) \text{ subject to x} \in \mathcal{S} \]</span></p>
+
+<p>where <span  class="math">\(f\)</span> is a polynomial and <span  class="math">\(\mathcal{S}\)</span> is an semi-algebraic
+set (i.e., defined by polynomial equations and inequalities over
+<span  class="math">\(\mathbb{R}^d\)</span>). Then, proving than <span  class="math">\(\gamma\)</span> is an
+<strong>upper bound</strong> on the optimal value of <span  class="math">\((\star)\)</span> is essentially
+equivalent to proving than</p>
+
+<p><span  class="math">\[ \gamma - f(x) \geq 0 \text{ subject to x} \in \mathcal{S} \]</span></p>
+
+<p>which reduces to a Positivstellensatz instance. Observe that we can
+encode very easily NP-hard problem as an optimization problem of the
+form <span  class="math">\((\star)\)</span>. For example, the <strong>stable set problem</strong> in graph,
+which asks for the biggest set <span  class="math">\(S\)</span> of vertices of a graph <span  class="math">\(G =
+(V,E)\)</span>, such that no two vertices in <span  class="math">\(S\)</span> are connected in <span  class="math">\(G\)</span>,
+can be encoded in the following way: we have <span  class="math">\(|V|\)</span> variables <span  class="math">\(x_i\)</span>
+(one for each vertex), and we want to solve the following problem:</p>
+
+<p><span  class="math">\[ max \sum_i x_i \text{ subject to } \forall (i,j) \in E, x_ix_j = 0,
+\forall i, x_i^2 = x_i\]</span></p>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fepsilon-step.github.io%2fpost%2ffarkas%2f&amp;text=Farkas%27%20lemma%20and%20related%20stories&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fepsilon-step.github.io%2fpost%2ffarkas%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fepsilon-step.github.io%2fpost%2ffarkas%2f&amp;title=Farkas%27%20lemma%20and%20related%20stories" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fepsilon-step.github.io%2fpost%2ffarkas%2f&amp;title=Farkas%27%20lemma%20and%20related%20stories" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fepsilon-step.github.io%2fpost%2ffarkas%2f&amp;title=Farkas%27%20lemma%20and%20related%20stories" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fepsilon-step.github.io%2fpost%2ffarkas%2f&amp;description=Farkas%27%20lemma%20and%20related%20stories" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://epsilon-step.github.io/post/test/" data-toggle="tooltip" data-placement="top" title="Test">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:guillaume.lagarde@labri.fr" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="http://guillaume-lagarde.github.io">Guillaume</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2019
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://epsilon-step.github.io">Epsilon step</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://epsilon-step.github.io/js/main.js"></script>
+<script src="https://epsilon-step.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://epsilon-step.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
