@@ -23,14 +23,5 @@
 where \(x\) lies in \(\mathbb{R}^d\) and the \(l_i \in \mathbb{R}[x]\) are polynomials of degree \(1\).</description>
     </item>
     
-    <item>
-      <title>Test</title>
-      <link>https://epsilon-step.github.io/post/test/</link>
-      <pubDate>Sat, 14 Dec 2019 14:42:36 +0100</pubDate>
-      <author>guillaume.lagarde@labri.fr (Guillaume)</author>
-      <guid>https://epsilon-step.github.io/post/test/</guid>
-      <description>blabl</description>
-    </item>
-    
   </channel>
 </rss>
