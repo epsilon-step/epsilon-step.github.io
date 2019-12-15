@@ -18,7 +18,7 @@
       <pubDate>Sat, 14 Dec 2019 15:30:41 +0100</pubDate>
       <author>guillaume.lagarde@labri.fr (Guillaume)</author>
       <guid>https://epsilon-step.github.io/post/farkas/</guid>
-      <description>Farkas&#39; lemma plays a central role in the strong duality theorem in linear programming (another post will unravel in details this implication). There are many equivalent ways to state this lemma but the following one will allow us to highlight similarities with others theorems. Formally, we consider a system of linear inequalities of the form
+      <description>Farkas&#39; lemma plays a central role in the strong duality theorem in linear programming (another post will unravel in details this implication). There are many equivalent ways to state this lemma but the following one will allow us to highlight similarities with other theorems. Formally, we consider a system of linear inequalities of the form
 \[l_1(x) \geq 0, \dots, l_m(x) \geq 0\]
 where \(x\) lies in \(\mathbb{R}^d\) and the \(l_i \in \mathbb{R}[x]\) are polynomials of degree \(1\).</description>
     </item>
